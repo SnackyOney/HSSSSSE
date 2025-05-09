@@ -1,3 +1,5 @@
+import { Image as ImageScript } from "https://deno.land/x/imagescript@v1.2.15/mod.ts";
+
 class Resources {
   constructor() {
     this.toLoad = {
