@@ -1,6 +1,8 @@
 import { getCanvas, getScoreText } from "./game.js";
 
-export const doc = document;
+export const getDocument = () => {
+  return document;
+};
 export const body = document.querySelector("body");
 export const gosTemplate = document.querySelector(
   ".game-over-screen-template"
