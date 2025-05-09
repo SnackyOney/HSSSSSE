@@ -1,3 +1,5 @@
+import { doc } from "./index.js";
+
 export const LEFT = "LEFT";
 export const RIGHT = "RIGHT";
 export const UP = "UP";
@@ -6,7 +8,7 @@ export const DOWN = "DOWN";
 export class Input {
   constructor() {
     this.heldDirections = [];
-    document.addEventListener("keydown", (e) => {
+    doc.addEventListener("keydown", (e) => {
       if (e.code === "KeyW" || e.code === "ArrowUp") {
         this.onArrowPressed(UP);
       }
@@ -21,7 +23,7 @@ export class Input {
       }
     });
 
-    document.addEventListener("keyup", (e) => {
+    doc.addEventListener("keyup", (e) => {
       if (e.code === "KeyW" || e.code === "ArrowUp") {
         this.onArrowReleased(UP);
       }
