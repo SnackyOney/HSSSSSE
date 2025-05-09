@@ -1,5 +1,3 @@
-import { Image } from "https://deno.land/x/imagescript/mod.ts";
-
 class Resources {
   constructor() {
     this.toLoad = {
@@ -13,7 +11,7 @@ class Resources {
     this.images = {};
 
     Object.keys(this.toLoad).forEach((key) => {
-      const image = new Image(1, 1);
+      const image = new Image();
       image.src = this.toLoad[key];
       this.images[key] = {
         image,
