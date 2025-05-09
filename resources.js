@@ -1,11 +1,11 @@
 class Resources {
   constructor() {
     this.toLoad = {
-      hero: "/game_images/hero.png",
-      gagarinov: "/game_images/gagarinov.jpg",
-      plus: "/game_images/plus.png",
-      background: "/game_images/background.jpg",
-      vshpivo: "/game_images/vshpivo.png",
+      hero: "./game_images/hero.png",
+      gagarinov: "./game_images/gagarinov.jpg",
+      plus: "./game_images/plus.png",
+      background: "./game_images/background.jpg",
+      vshpivo: "./game_images/vshpivo.png",
     };
 
     this.images = {};
