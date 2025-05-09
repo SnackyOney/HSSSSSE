@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average HSSE day</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/hsse-logo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.5, user-scalable=no">
+</head>
+
+<body>
+    <div class="main-space">
+    <div class="hsse-sign"></div>
+    <header>
+        <div class="cob-info">
+            <img class="company-logo" src="images/cob-logo.svg" alt="logo">
+            <p class="company-name">Couple of bushes presents</p>
+            <img class="company-logo" src="images/cob-logo.svg" alt="logo">
+        </div>
+        <h1 class="game-name">Обычный день на <span class="rainbow-text">ВШПИ</span></h1>
+    </header>
+    <main>
+        <ul class="menu">
+            <li class="menu-item">
+                <button class="play-button">Играть</button>
+            </li>
+            <li class="menu-item">
+                <button class="rules-button">Правила</button>
+            </li>
+            <li class="menu-item">
+                <button class="records-button">Рекорды</button>
+            </li>
+            <li class="menu-item">
+                <button class="exit-button">Выход</button>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <ul class="contacts">
+            <p class="header-contacts">Контакты:</p>
+            <li class="contact">
+                <a href="#"><img class="tg-logo" src="images/tg-logo.svg" alt="logo_tg"></a>
+                <p class="tg-p"><a href="#">@snackyone</a></p>
+            </li>
+            <li class="contact">
+                <a href="#"><img class="ds-logo" src="images/ds-logo.svg" alt="logo_ds"></a>
+                <p class="ds-p"><a href="#">snackyone</a></p>
+            </li>
+        </ul>
+        <h2 class="sign">Сделано Артёмом Уваровым из Б13-405 ВШПИ 2025 весна <span class="joke">По заказу ВШПИ ООО 2022-2025, couple of bushes® all rights reserved</span></h2>
+    </footer>
+    </div>
+
+    <template class="rules-block-template">
+        <div class="rules-block">
+            <div class="rules">
+                <h2>Правила</h2>
+                <p>Вам предстоит прожить самый обычный день любого ВШПИшника, а именно пытаться выжить в куче разных дедлайнов и экзаменов. Цель игры - уклоняться от препятствий и не умереть.</p>
+                <h2>Как зарабатывать очки?</h2>
+                <p>Очки даются за прожитое время и за собранное ВШПИво - единственный источник энергии студентов. <span class="joke">(напиток абсолютно безалгокольный, все права принадлежат Малееву А.С.)</span></p>
+                <h2>Управления</h2>
+                <p>wasd - двигаться, пробел - взаимодействие</p>
+                <h2>Какие есть препятствия?</h2>
+                <p>В течение игры на вас будет наваливаться всё больше и больше препятствий в следующем порядке:</p>
+                <ol>
+                    <li>Лектор по С++ будет кидаться в вас плюсами, пытаясь вас зафачить.</li>
+                    <li>Иногда на экране будут появляться дедлайны по контесту по алгосам, которые вам нужно закрыть до того, как на них истечёт срок. При упущении дедлайна вас сразу отчисляют.</li>
+                    <li>Лектор по матанализу будет невовремя напоминать отрицание критерия Коши.</li>
+                    <li>Охранник общежития начнёт патрулировать игровое поле.</li>
+                    <li>В конце концов настанет пора экзаменов и вам нужно будет пытаться не словить пересдачу! То есть буквально уворачивайтесь от пересдач.</li>
+                </ol>
+            </div>
+            <button class="back-rules-button">Назад</button>
+        </div>
+    </template>
+
+    <template class="records-table-template">
+        <div class="res-block">
+            <ul class="records">
+                <li class="record-line">
+                    <span class="place">Место</span>
+                    <span class="name">Имя</span>
+                    <span class="result">Результат</span>
+                </li>
+            </ul>
+            <button class="back-results-button">Назад</button>
+        </div>
+    </template>
+
+    <template class="record-template">
+        <li class="record-line">
+            <span class="place">1</span>
+            <span class="name">Вася</span>
+            <span class="result">2424</span>
+        </li>
+    </template>
+
+    <template class="menu-main-template">
+        <main>
+            <ul class="menu">
+                <li class="menu-item">
+                    <button class="play-button">Играть</button>
+                </li>
+                <li class="menu-item">
+                    <button class="rules-button">Правила</button>
+                </li>
+                <li class="menu-item">
+                    <button class="records-button">Рекорды</button>
+                </li>
+                <li class="menu-item">
+                    <button class="exit-button">Выход</button>
+                </li>
+            </ul>
+        </main>
+    </template>
+
+    <template class="menu-footer-template">
+        <footer>
+            <ul class="contacts">
+                <p class="header-contacts">Контакты:</p>
+                <li class="contact">
+                    <a href="#"><img class="tg-logo" src="images/tg-logo.svg" alt="logo_tg"></a>
+                    <p class="tg-p"><a href="#">@snackyone</a></p>
+                </li>
+                <li class="contact">
+                    <a href="#"><img class="ds-logo" src="images/ds-logo.svg" alt="logo_ds"></a>
+                    <p class="ds-p"><a href="#">snackyone</a></p>
+                </li>
+            </ul>
+            <h2 class="sign">Сделано Артёмом Уваровым из Б13-405 ВШПИ 2025 весна <span class="joke">По заказу ВШПИ ООО 2022-2025, couple of bushes® all rights reserved</span></h2>
+        </footer>
+    </template>
+
+    <template class="game-canvas-template">
+        <canvas class="game-canvas" width="1280" height="720">
+        </canvas>
+        <span class="current-score">Score</span>
+    </template>
+
+    <template class="game-over-screen-template">
+        <div class="game-over-screen">
+            <h1>Вы отчислены!</h1>
+            <p>Введите имя отчисленного</p>
+            <input>
+            <div class="buttons">
+                <button class="save-button">Сохранить</button>
+                <button class="no-save-button">Не сохранять</button>
+            </div>
+        </div>
+    </template>
+    
+    <template class="menu-header-and-background-template">
+        <div class="hsse-sign"></div>
+        <header>
+            <div class="cob-info">
+                <img class="company-logo" src="images/cob-logo.svg" alt="logo">
+                <p class="company-name">Couple of bushes presents</p>
+                <img class="company-logo" src="images/cob-logo.svg" alt="logo">
+            </div>
+            <h1 class="game-name">Обычный день на <span class="rainbow-text">ВШПИ</span></h1>
+        </header>
+    </template>
+
+</body>
+<script src="index.js" type="module"></script>
+</html>
