@@ -6,35 +6,6 @@ export const DOWN = "DOWN";
 export class Input {
   constructor() {
     this.heldDirections = [];
-    document.addEventListener("keydown", (e) => {
-      if (e.code === "KeyW" || e.code === "ArrowUp") {
-        this.onArrowPressed(UP);
-      }
-      if (e.code === "KeyA" || e.code === "ArrowLeft") {
-        this.onArrowPressed(LEFT);
-      }
-      if (e.code === "KeyS" || e.code === "ArrowDown") {
-        this.onArrowPressed(DOWN);
-      }
-      if (e.code === "KeyD" || e.code === "ArrowRight") {
-        this.onArrowPressed(RIGHT);
-      }
-    });
-
-    document.addEventListener("keyup", (e) => {
-      if (e.code === "KeyW" || e.code === "ArrowUp") {
-        this.onArrowReleased(UP);
-      }
-      if (e.code === "KeyA" || e.code === "ArrowLeft") {
-        this.onArrowReleased(LEFT);
-      }
-      if (e.code === "KeyS" || e.code === "ArrowDown") {
-        this.onArrowReleased(DOWN);
-      }
-      if (e.code === "KeyD" || e.code === "ArrowRight") {
-        this.onArrowReleased(RIGHT);
-      }
-    });
   }
 
   getDirectionFirst() {
