@@ -1,4 +1,4 @@
-import { getCanvas, getScoreText } from "/game.js";
+import { getCanvas, getScoreText } from "./game.js";
 
 export const body = document.querySelector("body");
 export const gosTemplate = document.querySelector(
