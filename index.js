@@ -1,3 +1,7 @@
+import { JSDOM } from "npm:jsdom";
+const { document } = new JSDOM("").window;
+globalThis.document = document;
+
 import { getCanvas, getScoreText } from "./game.js";
 
 export const body = document.querySelector("body");
