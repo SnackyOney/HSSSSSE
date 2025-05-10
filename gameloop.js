@@ -1,4 +1,10 @@
-import { gosTemplate, body, backFromGameToMenuButtonEvent } from "./index.js";
+import {
+  gosTemplate,
+  body,
+  backFromGameToMenuButtonEvent,
+  audioSetUp,
+} from "./index.js";
+import { die_audio, lancer_audio } from "./sounds.js";
 
 export class GameLoop {
   constructor(update, render) {
@@ -35,12 +41,15 @@ export class GameLoop {
   }
 
   gameEnd() {
+    lancer_audio.pause();
+    die_audio.play();
     const gameOverScreen = gosTemplate.cloneNode(true);
     const noSaveButton = gameOverScreen.querySelector(".no-save-button");
     noSaveButton.addEventListener("click", () => {
       backFromGameToMenuButtonEvent();
     });
     body.append(gameOverScreen);
+    audioSetUp();
     this.stop();
   }
 

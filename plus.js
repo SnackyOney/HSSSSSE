@@ -29,8 +29,8 @@ export class Plus extends GameObject {
       const roundedPlayerPosX = Math.round(pos.x);
       const roundedPlayerPosY = Math.round(pos.y);
       if (
-        Math.abs(roundedPlayerPosX - this.position.x) <= 45 &&
-        Math.abs(roundedPlayerPosY - this.position.y) <= 70
+        Math.abs(roundedPlayerPosX - this.position.x) <= 35 &&
+        Math.abs(roundedPlayerPosY - this.position.y) <= 60
       ) {
         // console.log("fa");
         this.onColideWithHero();

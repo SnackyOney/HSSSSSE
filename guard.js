@@ -3,29 +3,28 @@ import { Sprite } from "./sprite.js";
 import { Vector2 } from "./vector.js";
 import { resources } from "./resources.js";
 import { events } from "./event.js";
-import {
-  gameLoop,
-  screenSizeX,
-  screenSizeY,
-  setPlusFactoryTime,
-} from "./game.js";
-import { angry_audio } from "./sounds.js";
+import { gameLoop, screenSizeX, screenSizeY } from "./game.js";
+import { getRandomNumber } from "./tools.js";
+import { guard_audio } from "./sounds.js";
 
-export class Gagarinov extends GameObject {
-  constructor(x, y) {
+export class Guard extends GameObject {
+  constructor(x, y, playerPosX, playerPosY) {
     super({ position: new Vector2(x, y) });
-
-    this.speedVec = new Vector2(1, 0);
+    guard_audio.play();
+    this.speedVec = new Vector2(
+      getRandomNumber(50, 150),
+      getRandomNumber(50, 150)
+    );
     this.speedVec.normalize();
-    this.speed = 0;
+    this.speed = 7;
 
-    this.scale = 0.43;
-    this.PosOffset = new Vector2(-250 * this.scale, -250 * this.scale);
+    this.scale = 0.6;
+    this.PosOffset = new Vector2(-93, -75);
 
     this.body = new Sprite({
-      resource: resources.images.gagarinov,
-      frameSize: new Vector2(500, 500),
-      frameBegin: new Vector2(0, 200),
+      resource: resources.images.guard,
+      frameSize: new Vector2(510, 510),
+      frameBegin: new Vector2(50, 55),
       scale: this.scale,
       position: this.PosOffset,
     });
@@ -35,10 +34,10 @@ export class Gagarinov extends GameObject {
       const roundedPlayerPosX = Math.round(pos.x);
       const roundedPlayerPosY = Math.round(pos.y);
       if (
-        Math.abs(roundedPlayerPosX - this.position.x) <= 300 * this.scale &&
-        Math.abs(roundedPlayerPosY - this.position.y) <= 350 * this.scale
+        Math.abs(roundedPlayerPosX - this.position.x) <= 115 &&
+        Math.abs(roundedPlayerPosY - this.position.y) <= 90
       ) {
-        // console.log("fa");
+        console.log("fa");
         this.onColideWithHero();
       }
     });
@@ -46,12 +45,6 @@ export class Gagarinov extends GameObject {
 
   onColideWithHero() {
     gameLoop.gameEnd();
-  }
-
-  getAngry() {
-    angry_audio.play();
-    this.speed = 3;
-    setPlusFactoryTime(500);
   }
 
   step(delta, root) {

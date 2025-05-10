@@ -1,0 +1,13 @@
+export const lancer_audio = new Audio("./sounds/lancer.mp3");
+lancer_audio.loop = true;
+lancer_audio.volume = 0.6;
+export const menu_audio = new Audio("./sounds/menu.mp3");
+export const hover_audio = new Audio("./sounds/hover.mp3");
+export const deadline_audio = new Audio("./sounds/deadline.mp3");
+export const die_audio = new Audio("./sounds/die.mp3");
+export const guard_audio = new Audio("./sounds/guardian.mp3");
+export const gusev_audio = new Audio("./sounds/gusev.mp3");
+export const pick_audio = new Audio("./sounds/pick.mp3");
+export const plusi_audio = new Audio("./sounds/plusi.mp3");
+export const angry_audio = new Audio("./sounds/angry.mp3");
+angry_audio.volume = 1;

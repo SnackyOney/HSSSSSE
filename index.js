@@ -1,8 +1,10 @@
-import { JSDOM } from "npm:jsdom";
-const { document } = new JSDOM("").window;
-globalThis.document = document;
-
 import { getCanvas, getScoreText } from "./game.js";
+import {
+  hover_audio,
+  lancer_audio,
+  pick_audio,
+  plusi_audio,
+} from "./sounds.js";
 
 export const body = document.querySelector("body");
 export const gosTemplate = document.querySelector(
@@ -13,6 +15,17 @@ let exitButton = document.querySelector(".exit-button");
 let playButton = document.querySelector(".play-button");
 let recordsButton = document.querySelector(".records-button");
 let rulesButton = document.querySelector(".rules-button");
+let buttons = document.querySelectorAll("button");
+
+export const audioSetUp = () => {
+  buttons = document.querySelectorAll("button");
+  for (let button of buttons) {
+    button.addEventListener("click", () => {
+      pick_audio.cloneNode(true).play();
+    });
+  }
+};
+audioSetUp();
 
 const gameTemplate = document.querySelector(".game-canvas-template").content;
 const resultsTableTemplate = document.querySelector(
@@ -40,6 +53,10 @@ export const backFromGameToMenuButtonEvent = () => {
 };
 
 const playButtonEvent = function () {
+  setTimeout(() => {
+    lancer_audio.play();
+  }, 3200);
+  plusi_audio.play();
   let mainSpace = document.querySelector(".main-space");
   mainSpace.remove();
   const game = gameTemplate.querySelector(".game-canvas").cloneNode(true);
@@ -65,6 +82,7 @@ const getBackToMenu = function () {
   playButton.addEventListener("click", playButtonEvent);
   mainSpace.append(mainMenu);
   mainSpace.append(menuFooterTemplate.querySelector("footer").cloneNode(true));
+  audioSetUp();
 };
 
 const deleteMenu = function () {
@@ -90,6 +108,7 @@ const rulesButtonEvent = function () {
   });
 
   mainSpace.appendChild(rulesCopy);
+  audioSetUp();
 };
 
 const recordsButtonEvent = function () {
@@ -116,6 +135,7 @@ const recordsButtonEvent = function () {
     resultsTableCopy.querySelector("ul").appendChild(resultCopy);
   }
   mainSpace.appendChild(resultsTableCopy);
+  audioSetUp();
 };
 
 recordsButton.addEventListener("click", recordsButtonEvent);

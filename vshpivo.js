@@ -14,7 +14,7 @@ export class Vshpivo extends GameObject {
       resource: resources.images.vshpivo,
       frameSize: new Vector2(725, 925),
       frameBegin: new Vector2(0, 0),
-      scale: 0.08,
+      scale: 0.3,
       position: this.PosOffset,
     });
     this.addChild(this.body);
@@ -37,7 +37,7 @@ export class Vshpivo extends GameObject {
   }
 
   onColideWithHero() {
-    setScore(score + 10);
+    setScore(score + 5);
     this.destroy();
   }
 }

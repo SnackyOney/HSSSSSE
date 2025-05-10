@@ -1,6 +1,8 @@
+import { Contest } from "./contest.js";
 import { Gagarinov } from "./gagarinov.js";
 import { GameLoop } from "./gameloop.js";
 import { GameObject } from "./gameObject.js";
+import { Guard } from "./guard.js";
 import { Hero } from "./hero.js";
 import { Input } from "./input.js";
 import { Plus } from "./plus.js";
@@ -17,8 +19,15 @@ export const setScore = (new_score) => {
   score = new_score;
 };
 
+let plusFactoryTime = 700;
+export const setPlusFactoryTime = (new_time) => {
+  plusFactoryTime = new_time;
+};
+
 const randOffsetX = 50;
 const randOffsetY = 50;
+const randOffsetContestX = 200;
+const randOffsetContestY = 50;
 const mainSpace = new GameObject(new Vector2(0, 0));
 const mainSpaceBottom = new GameObject(new Vector2(0, 0));
 const gagarinovPos = new Vector2(655, 645);
@@ -31,6 +40,8 @@ mainSpace.input = new Input();
 const getCanvas = (cvs) => {
   canvas = cvs;
   ctx = canvas.getContext("2d");
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
   gameLoop = new GameLoop(update, draw);
   gameLoop.start();
   SetUp();
@@ -64,9 +75,6 @@ mainSpace.addChild(hero);
 const gagarinov = new Gagarinov(gagarinovPos.x, gagarinovPos.y);
 mainSpace.addChild(gagarinov);
 
-const plus = new Plus(0, 0);
-mainSpace.addChild(plus);
-
 const vshpivoFactory = () => {
   const posX = getRandomNumber(randOffsetX, screenSizeX - randOffsetX);
   const posY = getRandomNumber(randOffsetY, screenSizeY - randOffsetY);
@@ -74,29 +82,69 @@ const vshpivoFactory = () => {
   mainSpaceBottom.addChild(vshpivo);
   setTimeout(() => {
     vshpivoFactory();
-  }, 1000);
+  }, 800);
+};
+
+const contestFactory = () => {
+  const posX = getRandomNumber(
+    randOffsetContestX,
+    screenSizeX - randOffsetContestX + 175
+  );
+  const posY = getRandomNumber(
+    randOffsetContestY,
+    screenSizeY - randOffsetContestY - 20
+  );
+  if (
+    Math.abs(posX - gagarinovPos.x) <= 200 &&
+    Math.abs(posY - gagarinovPos.y) <= 200
+  ) {
+    contestFactory();
+    return;
+  }
+  const contest = new Contest(posX, posY);
+  mainSpaceBottom.addChild(contest);
+  setTimeout(() => {
+    contestFactory();
+  }, 4000);
 };
 
 const plusFactory = () => {
   const plus = new Plus(
-    gagarinovPos.x,
-    gagarinovPos.y,
+    gagarinov.position.x,
+    gagarinov.position.y,
     hero.position.x,
     hero.position.y
   );
   mainSpace.addChild(plus);
   setTimeout(() => {
     plusFactory();
-  }, 700);
+  }, plusFactoryTime);
 };
 
 const SetUp = () => {
   if (gameLoop.isRunning) {
     IncreaseScoreInf();
-    vshpivoFactory();
+    setTimeout(() => {
+      vshpivoFactory();
+    }, 4000);
     setTimeout(() => {
       plusFactory();
-    }, 2000);
+    }, 4000);
+    setTimeout(() => {
+      contestFactory();
+    }, 15000);
+    setTimeout(() => {
+      gagarinov.getAngry();
+    }, 30000);
+    setTimeout(() => {
+      const guard = new Guard(
+        gagarinov.position.x,
+        gagarinov.position.y,
+        hero.position.x,
+        hero.position.y
+      );
+      mainSpace.addChild(guard);
+    }, 50000);
   }
 };
 
