@@ -8,20 +8,18 @@ import { die_audio, lancer_audio } from "./sounds.js";
 import { score } from "./game.js";
 
 async function saveResult(name, ac_score) {
-  setTimeout(async () => {
-    const resultData = {
-      username: name,
-      score: ac_score,
-    };
+  const resultData = {
+    username: name,
+    score: ac_score,
+  };
 
-    await fetch("./api/results", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(resultData),
-    });
-  }, 100);
+  await fetch("./api/results", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(resultData),
+  });
 }
 
 export class GameLoop {
