@@ -1,8 +1,10 @@
+import { Conspect } from "./conspect.js";
 import { Contest } from "./contest.js";
 import { Gagarinov } from "./gagarinov.js";
 import { GameLoop } from "./gameloop.js";
 import { GameObject } from "./gameObject.js";
 import { Guard } from "./guard.js";
+import { Gusev } from "./gusev.js";
 import { Hero } from "./hero.js";
 import { Input } from "./input.js";
 import { Plus } from "./plus.js";
@@ -34,6 +36,7 @@ const gagarinovPos = new Vector2(655, 645);
 let canvas;
 let scoreText;
 let ctx;
+let guard;
 export let gameLoop;
 
 mainSpace.input = new Input();
@@ -108,6 +111,25 @@ const contestFactory = () => {
   }, 4000);
 };
 
+export const conspectBurst = (pos) => {
+  const conspect = new Conspect(pos.x, pos.y, new Vector2(0, -1));
+  mainSpace.addChild(conspect);
+  const conspect2 = new Conspect(pos.x, pos.y, new Vector2(1, 1));
+  mainSpace.addChild(conspect2);
+  const conspect3 = new Conspect(pos.x, pos.y, new Vector2(-1, -1));
+  mainSpace.addChild(conspect3);
+  const conspect4 = new Conspect(pos.x, pos.y, new Vector2(-1, 1));
+  mainSpace.addChild(conspect4);
+  const conspect5 = new Conspect(pos.x, pos.y, new Vector2(1, -1));
+  mainSpace.addChild(conspect5);
+  const conspect6 = new Conspect(pos.x, pos.y, new Vector2(0, 1));
+  mainSpace.addChild(conspect6);
+  const conspect7 = new Conspect(pos.x, pos.y, new Vector2(1, 0));
+  mainSpace.addChild(conspect7);
+  const conspect8 = new Conspect(pos.x, pos.y, new Vector2(-1, 0));
+  mainSpace.addChild(conspect8);
+};
+
 const plusFactory = () => {
   const plus = new Plus(
     gagarinov.position.x,
@@ -119,6 +141,14 @@ const plusFactory = () => {
   setTimeout(() => {
     plusFactory();
   }, plusFactoryTime);
+};
+
+const gusevFactory = () => {
+  const gusev = new Gusev(guard.position.x, guard.position.y);
+  mainSpace.addChild(gusev);
+  setTimeout(() => {
+    gusevFactory();
+  }, 7000);
 };
 
 const SetUp = () => {
@@ -137,7 +167,7 @@ const SetUp = () => {
       gagarinov.getAngry();
     }, 30000);
     setTimeout(() => {
-      const guard = new Guard(
+      guard = new Guard(
         gagarinov.position.x,
         gagarinov.position.y,
         hero.position.x,
@@ -145,6 +175,9 @@ const SetUp = () => {
       );
       mainSpace.addChild(guard);
     }, 50000);
+    setTimeout(() => {
+      gusevFactory();
+    }, 70000);
   }
 };
 

@@ -49,9 +49,11 @@ export class Gagarinov extends GameObject {
   }
 
   getAngry() {
-    angry_audio.play();
-    this.speed = 3;
-    setPlusFactoryTime(500);
+    if (gameLoop.isRunning) {
+      angry_audio.play();
+      this.speed = 4.5;
+      setPlusFactoryTime(600);
+    }
   }
 
   step(delta, root) {

@@ -1,9 +1,9 @@
 import { getCanvas, getScoreText } from "./game.js";
 import {
-  hover_audio,
   lancer_audio,
   pick_audio,
   plusi_audio,
+  gusev_audio,
 } from "./sounds.js";
 
 export const body = document.querySelector("body");

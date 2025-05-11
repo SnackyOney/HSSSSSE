@@ -10,7 +10,9 @@ import { guard_audio } from "./sounds.js";
 export class Guard extends GameObject {
   constructor(x, y, playerPosX, playerPosY) {
     super({ position: new Vector2(x, y) });
-    guard_audio.play();
+    if (gameLoop.isRunning) {
+      guard_audio.play();
+    }
     this.speedVec = new Vector2(
       getRandomNumber(50, 150),
       getRandomNumber(50, 150)

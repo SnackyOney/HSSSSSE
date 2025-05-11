@@ -12,6 +12,7 @@ class Resources {
       contest2: "./game_images/contest_2.jpg",
       guard: "./game_images/guard.png",
       gusev: "./game_images/gusev.png",
+      conspect: "./game_images/conspect.png",
     };
 
     this.images = {};
