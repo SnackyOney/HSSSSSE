@@ -144,7 +144,7 @@ async function recordsButtonEvent() {
   setTimeout(() => {
     let sortedData = data.sort((a, b) => b.score - a.score);
     // console.log(sortedData);
-    for (let i = 0; i <= Math.min(10, sortedData.length - 1); i++) {
+    for (let i = 0; i <= Math.min(9, sortedData.length - 1); i++) {
       let resultCopy = resultTemplate
         .querySelector(".record-line")
         .cloneNode(true);
