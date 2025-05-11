@@ -145,19 +145,21 @@ async function recordsButtonEvent() {
     let sortedData = data.sort((a, b) => b.score - a.score);
     // console.log(sortedData);
     let sizer = Math.min(9, sortedData.length - 1);
+    let placer = 1;
     for (let i = 0; i <= sizer; i++) {
       if (
-        i > 0 &&
-        sortedData[i - 1].username !== sortedData[i].username &&
+        i == 0 ||
+        sortedData[i - 1].username !== sortedData[i].username ||
         sortedData[i - 1].score !== sortedData[i].score
       ) {
         let resultCopy = resultTemplate
           .querySelector(".record-line")
           .cloneNode(true);
         resultCopy.querySelector(".name").textContent = sortedData[i].username;
-        resultCopy.querySelector(".place").textContent = i + 1;
+        resultCopy.querySelector(".place").textContent = placer;
         resultCopy.querySelector(".result").textContent = sortedData[i].score;
         resultsTableCopy.querySelector("ul").appendChild(resultCopy);
+        placer++;
       }
     }
     mainSpace.appendChild(resultsTableCopy);
