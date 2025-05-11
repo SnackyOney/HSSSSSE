@@ -6,6 +6,18 @@ import {
   gusev_audio,
 } from "./sounds.js";
 
+async function getRecords() {
+  let response = await fetch("./api/results", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  let data = await response.json();
+  return data;
+}
+
 export const body = document.querySelector("body");
 export const gosTemplate = document.querySelector(
   ".game-over-screen-template"
@@ -111,7 +123,7 @@ const rulesButtonEvent = function () {
   audioSetUp();
 };
 
-const recordsButtonEvent = function () {
+async function recordsButtonEvent() {
   let mainSpace = document.querySelector(".main-space");
   deleteMenu();
   const resultsTableCopy = resultsTableTemplate
@@ -128,15 +140,23 @@ const recordsButtonEvent = function () {
     getBackToMenu();
   });
 
-  for (let i = 1; i <= 10; i++) {
-    let resultCopy = resultTemplate
-      .querySelector(".record-line")
-      .cloneNode(true);
-    resultsTableCopy.querySelector("ul").appendChild(resultCopy);
-  }
-  mainSpace.appendChild(resultsTableCopy);
-  audioSetUp();
-};
+  const data = await getRecords();
+  setTimeout(() => {
+    let sortedData = data.sort((a, b) => b.score - a.score);
+    // console.log(sortedData);
+    for (let i = 0; i <= Math.min(10, sortedData.length - 1); i++) {
+      let resultCopy = resultTemplate
+        .querySelector(".record-line")
+        .cloneNode(true);
+      resultCopy.querySelector(".name").textContent = sortedData[i].username;
+      resultCopy.querySelector(".place").textContent = i + 1;
+      resultCopy.querySelector(".result").textContent = sortedData[i].score;
+      resultsTableCopy.querySelector("ul").appendChild(resultCopy);
+    }
+    mainSpace.appendChild(resultsTableCopy);
+    audioSetUp();
+  }, 100);
+}
 
 recordsButton.addEventListener("click", recordsButtonEvent);
 

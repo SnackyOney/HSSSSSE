@@ -12,4 +12,3 @@ export const pick_audio = new Audio("./sounds/pick.mp3");
 export const plusi_audio = new Audio("./sounds/plusi.mp3");
 export const angry_audio = new Audio("./sounds/angry.mp3");
 export const pop_audio = new Audio("./sounds/killpop.mp3");
-angry_audio.volume = 1;

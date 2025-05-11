@@ -5,6 +5,24 @@ import {
   audioSetUp,
 } from "./index.js";
 import { die_audio, lancer_audio } from "./sounds.js";
+import { score } from "./game.js";
+
+async function saveResult(name, ac_score) {
+  setTimeout(async () => {
+    const resultData = {
+      username: name,
+      score: ac_score,
+    };
+
+    await fetch("./api/results", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(resultData),
+    });
+  }, 100);
+}
 
 export class GameLoop {
   constructor(update, render) {
@@ -45,8 +63,17 @@ export class GameLoop {
     die_audio.play();
     const gameOverScreen = gosTemplate.cloneNode(true);
     const noSaveButton = gameOverScreen.querySelector(".no-save-button");
+    const saveButton = gameOverScreen.querySelector(".save-button");
+    const name = gameOverScreen.querySelector("input");
+    let ac_score = score;
     noSaveButton.addEventListener("click", () => {
       backFromGameToMenuButtonEvent();
+    });
+    saveButton.addEventListener("click", () => {
+      saveResult(name.value, ac_score);
+      setTimeout(() => {
+        backFromGameToMenuButtonEvent();
+      }, 300);
     });
     body.append(gameOverScreen);
     audioSetUp();
