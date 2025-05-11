@@ -211,6 +211,9 @@ h2 {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
+    .name {
+        white-space: nowrap;
+    }
     li:nth-child(2n + 1) {
         .place, .name, .result {
             background-color: rgba(121, 121, 121, 0.5);
