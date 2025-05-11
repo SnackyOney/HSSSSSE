@@ -154,10 +154,12 @@ async function recordsButtonEvent() {
     let used = new Set();
     for (let i = 0; i <= sizer; i++) {
       if (
-        !used.has({
-          name: sortedData[i].username,
-          score: sortedData[i].score,
-        })
+        !used.has(
+          JSON.stringify({
+            name: sortedData[i].username,
+            score: sortedData[i].score,
+          })
+        )
       ) {
         let resultCopy = resultTemplate
           .querySelector(".record-line")
