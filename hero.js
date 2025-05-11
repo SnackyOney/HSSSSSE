@@ -5,7 +5,7 @@ import { Sprite } from "./sprite.js";
 import { resources } from "./resources.js";
 import { DOWN, LEFT, RIGHT, UP } from "./input.js";
 import { events } from "./event.js";
-
+ 
 export class Hero extends GameObject {
   constructor(x, y) {
     super({ position: new Vector2(x, y) });
