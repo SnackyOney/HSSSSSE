@@ -176,10 +176,6 @@ async function recordsButtonEvent() {
             score: sortedData[i].score,
           })
         );
-      } else {
-        if (sortedData.length - 1 > sizer) {
-          sizer++;
-        }
       }
     }
     mainSpace.appendChild(resultsTableCopy);
