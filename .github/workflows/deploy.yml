@@ -29,7 +29,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "average-hsse-day-indeed"
+          project: "hssssse-64"
           entrypoint: "main.ts"
           root: "."
           
