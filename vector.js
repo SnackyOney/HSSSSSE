@@ -3,7 +3,7 @@ export class Vector2 {
     this.x = x;
     this.y = y;
   }
-
+ 
   normalize() {
     let old_x = this.x;
     this.x /= Math.sqrt(this.x * this.x + this.y * this.y);
