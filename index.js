@@ -160,6 +160,8 @@ async function recordsButtonEvent() {
         resultCopy.querySelector(".result").textContent = sortedData[i].score;
         resultsTableCopy.querySelector("ul").appendChild(resultCopy);
         placer++;
+      } else {
+        sizer++;
       }
     }
     mainSpace.appendChild(resultsTableCopy);
