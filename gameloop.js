@@ -33,6 +33,7 @@ export class GameLoop {
     this.timeStep = 1000 / 60;
     this.rafId = null;
     this.isRunning = false;
+    this.isSaved = false;
   }
 
   mainLoop = (timestamp) => {
@@ -70,10 +71,13 @@ export class GameLoop {
       backFromGameToMenuButtonEvent();
     });
     saveButton.addEventListener("click", () => {
-      saveResult(name.value, ac_score);
-      setTimeout(() => {
-        backFromGameToMenuButtonEvent();
-      }, 300);
+      if (!this.isSaved) {
+        this.isSaved = true;
+        saveResult(name.value, ac_score);
+        setTimeout(() => {
+          backFromGameToMenuButtonEvent();
+        }, 300);
+      }
     });
     body.append(gameOverScreen);
     audioSetUp();

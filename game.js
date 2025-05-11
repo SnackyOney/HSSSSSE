@@ -187,6 +187,7 @@ const update = (delta) => {
 };
 
 const draw = () => {
+  ctx.clearRect(0, 0, screenSizeX, screenSizeY);
   backgroundSprite.drawImage(ctx, 0, 0);
   mainSpaceBottom.draw(ctx, 0, 0);
   mainSpace.draw(ctx, 0, 0);

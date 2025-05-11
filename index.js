@@ -141,7 +141,7 @@ async function recordsButtonEvent() {
   });
 
   const data = await getRecords();
-  setTimeout(() => {
+  setTimeout(async () => {
     let sortedData = data.sort((a, b) => b.score - a.score);
     // console.log(sortedData);
     for (let i = 0; i <= Math.min(9, sortedData.length - 1); i++) {
@@ -155,7 +155,7 @@ async function recordsButtonEvent() {
     }
     mainSpace.appendChild(resultsTableCopy);
     audioSetUp();
-  }, 100);
+  }, 500);
 }
 
 recordsButton.addEventListener("click", recordsButtonEvent);
