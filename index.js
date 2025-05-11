@@ -177,7 +177,9 @@ async function recordsButtonEvent() {
           })
         );
       } else {
-        sizer++;
+        if (sortedData.length - 1 > sizer) {
+          sizer++;
+        }
       }
     }
     mainSpace.appendChild(resultsTableCopy);

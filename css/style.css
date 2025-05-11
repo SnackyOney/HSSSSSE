@@ -211,8 +211,8 @@ h2 {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-    /* overflow: scroll;
-    max-height: 396px; */
+    overflow: scroll;
+    max-height: 396px;
     .name {
         white-space: nowrap;
     }
