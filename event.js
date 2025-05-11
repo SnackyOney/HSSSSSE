@@ -4,7 +4,7 @@ class Events {
     this.idCounter = 0;
   }
 
-  emit(eventName, value) {
+  emit(eventName, value) { 
     this.callbacks.forEach((stored) => {
       if (stored.eventName === eventName) {
         stored.callback(value);
