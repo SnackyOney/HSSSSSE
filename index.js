@@ -169,10 +169,12 @@ async function recordsButtonEvent() {
         placer++;
         sizer++;
 
-        used.add({
-          name: sortedData[i].username,
-          score: sortedData[i].score,
-        });
+        used.add(
+          JSON.stringify({
+            name: sortedData[i].username,
+            score: sortedData[i].score,
+          })
+        );
       }
     }
     mainSpace.appendChild(resultsTableCopy);
