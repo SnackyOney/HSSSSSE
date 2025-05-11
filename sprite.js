@@ -7,7 +7,7 @@ export class Sprite extends GameObject {
     this.resource = resource;
     this.frameSize = frameSize ?? new Vector2(100, 100);
     this.frameBegin = frameBegin ?? new Vector2(0, 0);
-    this.scale = scale ?? 1;
+    this.scale = scale ?? 1; 
     this.position = position ?? new Vector2(0, 0);
   }
 
