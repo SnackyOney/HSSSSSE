@@ -4,7 +4,7 @@ import { insert_records } from "./db/insert.ts";
 import { get_records } from "./db/query.ts";
 import { delete_all_records } from "./db/delete.ts";
 
-export const port = 3000;
+export const port = 8000;
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
