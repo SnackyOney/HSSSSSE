@@ -142,7 +142,12 @@ async function recordsButtonEvent() {
 
   const data = await getRecords();
   setTimeout(async () => {
-    let sortedData = data.sort((a, b) => b.score - a.score);
+    let sortedData = data.sort((a, b) => {
+      if (b.score !== a.score) {
+        return b.score - a.score;
+      }
+      return a.name.localeCompare(b.name);
+    });
     // console.log(sortedData);
     let sizer = Math.min(9, sortedData.length - 1);
     let placer = 1;
