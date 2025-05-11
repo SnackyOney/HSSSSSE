@@ -23,10 +23,13 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Build step
+        run: "deno task build"
+
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "hsse-moment"
+          project: "hsse-gaming"
           entrypoint: "main.ts"
           root: "."
           
