@@ -149,7 +149,7 @@ async function recordsButtonEvent() {
       return a.username.localeCompare(b.username);
     });
     // console.log(sortedData);
-    let sizer = Math.min(9, sortedData.length - 1);
+    let sizer = Math.min(100, sortedData.length - 1);
     let placer = 1;
     let used = new Set();
     for (let i = 0; i <= sizer; i++) {
@@ -169,7 +169,6 @@ async function recordsButtonEvent() {
         resultCopy.querySelector(".result").textContent = sortedData[i].score;
         resultsTableCopy.querySelector("ul").appendChild(resultCopy);
         placer++;
-        sizer++;
 
         used.add(
           JSON.stringify({
@@ -177,6 +176,8 @@ async function recordsButtonEvent() {
             score: sortedData[i].score,
           })
         );
+      } else {
+        sizer++;
       }
     }
     mainSpace.appendChild(resultsTableCopy);
