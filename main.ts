@@ -15,7 +15,7 @@ const corsHeaders = {
 const handler = async (req) => {
   const url = new URL(req.url);
 
-  // await delete_all_records();
+  await delete_all_records();
 
   // console.log(await get_records());
 
