@@ -1,0 +1,6 @@
+{
+    "tasks": {
+      "build": "deno run --allow-net --allow-read --unstable-kv main.ts"
+    }
+  }
+  
