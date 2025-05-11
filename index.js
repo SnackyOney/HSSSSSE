@@ -146,7 +146,7 @@ async function recordsButtonEvent() {
       if (b.score !== a.score) {
         return b.score - a.score;
       }
-      return a.name.localeCompare(b.name);
+      return a.username.localeCompare(b.username);
     });
     // console.log(sortedData);
     let sizer = Math.min(9, sortedData.length - 1);
