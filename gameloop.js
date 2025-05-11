@@ -71,13 +71,11 @@ export class GameLoop {
       backFromGameToMenuButtonEvent();
     });
     saveButton.addEventListener("click", () => {
-      if (!this.isSaved) {
-        this.isSaved = true;
-        saveResult(name.value, ac_score);
-        setTimeout(() => {
-          backFromGameToMenuButtonEvent();
-        }, 300);
-      }
+      this.isSaved = true;
+      saveResult(name.value, ac_score);
+      setTimeout(() => {
+        backFromGameToMenuButtonEvent();
+      }, 300);
     });
     body.append(gameOverScreen);
     audioSetUp();
