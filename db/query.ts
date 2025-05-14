@@ -5,7 +5,7 @@ export async function get_records() {
   const results = [];
 
   console.log("start get");
-  for (let i = 0; i < Math.min(1000, entries.length); ++i) {
+  for (let i = 0; i < Math.min(100000, entries.length); ++i) {
     results.push(entries[i].value);
     // console.log(entries[i].value);
   }

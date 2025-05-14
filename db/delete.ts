@@ -13,7 +13,7 @@ export async function delete_all_records() {
     data = await get_records();
 
     data.forEach((item) => {
-      if (item.username === 'Артем, когда ревью по алгосам?') {
+      if (item.score === 99999) {
         console.log('delete');
         delete_records("results", item.id);
       }
