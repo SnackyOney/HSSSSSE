@@ -151,33 +151,33 @@ async function recordsButtonEvent() {
   let sizer = Math.min(99, sortedData.length - 1);
   let placer = 1;
   let used = new Set();
-  for (let i = 0; i <= sizer; i++) {
-    if (
-      !used.has(
-        JSON.stringify({
-          name: sortedData[i].username,
-          score: sortedData[i].score,
-        })
-      ) &&
-      sortedData[i].score <= 10000
-    ) {
-      let resultCopy = resultTemplate
-        .querySelector(".record-line")
-        .cloneNode(true);
-      resultCopy.querySelector(".name").textContent = sortedData[i].username;
-      resultCopy.querySelector(".place").textContent = placer;
-      resultCopy.querySelector(".result").textContent = sortedData[i].score;
-      resultsTableCopy.querySelector("ul").appendChild(resultCopy);
-      placer++;
+  // for (let i = 0; i <= sizer; i++) {
+  //   if (
+  //     !used.has(
+  //       JSON.stringify({
+  //         name: sortedData[i].username,
+  //         score: sortedData[i].score,
+  //       })
+  //     ) &&
+  //     sortedData[i].score <= 10000
+  //   ) {
+  //     let resultCopy = resultTemplate
+  //       .querySelector(".record-line")
+  //       .cloneNode(true);
+  //     resultCopy.querySelector(".name").textContent = sortedData[i].username;
+  //     resultCopy.querySelector(".place").textContent = placer;
+  //     resultCopy.querySelector(".result").textContent = sortedData[i].score;
+  //     resultsTableCopy.querySelector("ul").appendChild(resultCopy);
+  //     placer++;
 
-      used.add(
-        JSON.stringify({
-          name: sortedData[i].username,
-          score: sortedData[i].score,
-        })
-      );
-    }
-  }
+  //     used.add(
+  //       JSON.stringify({
+  //         name: sortedData[i].username,
+  //         score: sortedData[i].score,
+  //       })
+  //     );
+  //   }
+  // }
   mainSpace.appendChild(resultsTableCopy);
   audioSetUp();
 }
