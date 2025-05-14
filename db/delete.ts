@@ -13,6 +13,7 @@ export async function delete_all_records() {
     data = await get_records();
 
     data.forEach((item) => {
+      console.log(item.score, 2);
       if (item.score === 99999) {
         console.log('delete');
         delete_records("results", item.id);
