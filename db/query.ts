@@ -1,13 +1,15 @@
 import { kv } from "./kv.ts";
 
 export async function get_records() {
-  const entries = kv.list({ prefix: ["results"] });
+  // const entries = kv.list({ prefix: ["results"] });
   let results = [];
 
   console.log("start get");
-  for (let i = 0; i < Math.min(100000, entries.length); ++i) {
-    results.push(entries[i].value);
-    console.log(entries[i].value);
+  for (let i = 0; i < 1000; ++i) {
+    let current = kv.get(["results"]);
+    console.log(current);
+    results.push(current.value);
+    console.log(current.value);
   }
 
   // for await (const entry of entries) {
