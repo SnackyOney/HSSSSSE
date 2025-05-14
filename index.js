@@ -140,13 +140,13 @@ async function recordsButtonEvent() {
     getBackToMenu();
   });
 
-  const data = await getRecords();
-  let sortedData = data.sort((a, b) => {
-    if (b.score !== a.score) {
-      return b.score - a.score;
-    }
-    return a.username.localeCompare(b.username);
-  });
+  // const data = await getRecords();
+  // let sortedData = data.sort((a, b) => {
+  //   if (b.score !== a.score) {
+  //     return b.score - a.score;
+  //   }
+  //   return a.username.localeCompare(b.username);
+  // });
   // console.log(sortedData);
   let sizer = Math.min(99, sortedData.length - 1);
   let placer = 1;
