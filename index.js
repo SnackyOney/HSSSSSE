@@ -147,7 +147,6 @@ async function recordsButtonEvent() {
     }
     return a.username.localeCompare(b.username);
   });
-  console.log(sortedData);
   let sizer = Math.min(99, sortedData.length - 1);
   let placer = 1;
   let used = new Set();
