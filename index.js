@@ -158,7 +158,8 @@ async function recordsButtonEvent() {
           name: sortedData[i].username,
           score: sortedData[i].score,
         })
-      )
+      ) &&
+      sortedData[i].score <= 10000
     ) {
       let resultCopy = resultTemplate
         .querySelector(".record-line")
