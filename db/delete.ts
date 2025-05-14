@@ -6,9 +6,18 @@ export async function delete_records(name, id) {
 }
 
 export async function delete_all_records() {
-  const data = await get_records();
 
-  data.forEach((item) => {
-    delete_records("results", item.id);
-  });
+  let data = [];
+
+  do {
+    data = await get_records();
+
+    data.forEach((item) => {
+      if (item.username === 'Артем, когда ревью по алгосам?') {
+        console.log('delete');
+        delete_records("results", item.id);
+      }
+      // delete_records("results", item.id);
+    });
+  } while (data.length != 0);
 }
