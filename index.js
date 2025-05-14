@@ -151,10 +151,6 @@ async function recordsButtonEvent() {
   let sizer = Math.min(99, sortedData.length - 1);
   let placer = 1;
   let used = new Set();
-  const keys = kv.list(); // If you want to list all keys without a specific prefix
-  for await (const entry of keys) {
-    await kv.delete(entry.key);
-  }
   for (let i = 0; i <= sizer; i++) {
     if (
       !used.has(
