@@ -148,9 +148,9 @@ async function recordsButtonEvent() {
   //   return a.username.localeCompare(b.username);
   // });
   // console.log(sortedData);
-  let sizer = Math.min(99, sortedData.length - 1);
-  let placer = 1;
-  let used = new Set();
+  // let sizer = Math.min(99, sortedData.length - 1);
+  // let placer = 1;
+  // let used = new Set();
   // for (let i = 0; i <= sizer; i++) {
   //   if (
   //     !used.has(
@@ -164,10 +164,10 @@ async function recordsButtonEvent() {
   //     let resultCopy = resultTemplate
   //       .querySelector(".record-line")
   //       .cloneNode(true);
-  //     resultCopy.querySelector(".name").textContent = sortedData[i].username;
-  //     resultCopy.querySelector(".place").textContent = placer;
-  //     resultCopy.querySelector(".result").textContent = sortedData[i].score;
-  //     resultsTableCopy.querySelector("ul").appendChild(resultCopy);
+  resultCopy.querySelector(".name").textContent = sortedData[i].username;
+  resultCopy.querySelector(".place").textContent = placer;
+  resultCopy.querySelector(".result").textContent = sortedData[i].score;
+  resultsTableCopy.querySelector("ul").appendChild(resultCopy);
   //     placer++;
 
   //     used.add(
