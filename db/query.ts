@@ -8,7 +8,7 @@ export async function get_records() {
 
   for await (const entry of entries) {
     results.push(entry.value);
-    console.log(entry.value, 1);
+    // console.log(entry.value, 1);
   }
 
   console.log("finish get", results.length);
